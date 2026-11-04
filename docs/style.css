@@ -110,7 +110,7 @@ html, body {
 }
 
 #section-1 {
-  background-image: linear-gradient(rgb(0,0,0), rgb(0,0,0), url('assets/img/placehold.png');
+  background-image: linear-gradient(rgb(0,0,0), rgb(0,0,0)), url('assets/img/placehold.png');
 }
 
 #section-2 {
