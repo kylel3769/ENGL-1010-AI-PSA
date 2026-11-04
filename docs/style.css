@@ -106,19 +106,19 @@ html, body {
    Background Image Assignments
    ========================================================================== */
 .hero-section {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/placetitle.png'); 
+  background-image: linear-gradient(rgb(0,0,0), rgb(0,0,0)), url('assets/img/placetitle.png'); 
 }
 
 #section-1 {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('assets/img/placehold.png');
+  background-image: linear-gradient(rgb(0,0,0), rgb(0,0,0), url('assets/img/placehold.png');
 }
 
 #section-2 {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('assets/img/placehold2.png');
+  background-image: linear-gradient(rgb(0,0,0), rgb(0,0,0)), url('assets/img/placehold2.png');
 }
 
-.footer-section {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('assets/img/placehold3.png');
+#section-3 {
+  background-image: linear-gradient(rgb(0,0,0), rgb(0,0,0)), url('assets/img/placehold3.png');
 }
 
 /* Content Layout Alignment Controls */
