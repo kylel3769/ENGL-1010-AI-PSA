@@ -1,0 +1,212 @@
+/* Base Reset & Layout Variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark-bar: rgba(20, 20, 20, 0.9);
+  --text-light: #ffffff;
+  --box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --glass-panel: rgba(255, 255, 255, 0.9);
+}
+
+html, body {
+  font-family: var(--font-stack);
+  background-color: #000000;
+  color: #1a1a1a;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent native window double scrollbars */
+}
+
+/* Anchored Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--bg-dark-bar);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-container .logo {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* Active Window Desktop Scroll Container */
+.scroll-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Seamless Fullscreen Canvas Engine */
+.hero-section,
+.content-section,
+.footer-section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Creates fixed-background parallax illusion */
+}
+
+/* ==========================================================================
+   Background Image Assignments
+   ========================================================================== */
+.hero-section {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/placetitle.png'); 
+}
+
+#section-1 {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('assets/img/placehold.png');
+}
+
+#section-2 {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('assets/img/placehold2.png');
+}
+
+.footer-section {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('assets/img/placehold.png');
+}
+
+/* Content Layout Alignment Controls */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Forces layout alteration: snaps Section 2 text module to the right side */
+#section-2 .container {
+  justify-content: flex-end;
+}
+
+.slogan-box {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-light);
+  padding: 50px 70px;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  max-width: 800px;
+  width: 90%;
+}
+
+.slogan-box h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+/* Frosted glass cards layout rule protecting overlay text */
+.text-side-card {
+  background: var(--glass-panel);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 45px;
+  border-radius: 14px;
+  max-width: 520px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.text-side-card h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.text-side-card p {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #2b2b2b;
+}
+
+/* Footer Container Styling */
+.footer-bar {
+  background-color: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-light);
+  width: 90%;
+  max-width: 700px;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-bar a {
+  color: #90e0ef;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 8px;
+}
+
+.footer-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Initial state utility for Animate.css scroll initialization */
+.scroll-animate {
+  opacity: 0;
+}
