@@ -210,3 +210,63 @@ html, body {
 .scroll-animate {
   opacity: 0;
 }
+
+/* Custom Dedicated Footer Slide Rules */
+.footer-section-fixed {
+  background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/img/placehold.png');
+}
+
+.footer-box {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-light);
+  width: 90%;
+  max-width: 700px;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.footer-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #90e0ef;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 4px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.footer-links .divider {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 4px;
+}
+
+.footer-box .copyright {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin-bottom: 0;
+}
