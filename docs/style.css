@@ -1,4 +1,3 @@
-/* Base Reset & Layout Variables */
 * {
   margin: 0;
   padding: 0;
@@ -19,10 +18,9 @@ html, body {
   color: #1a1a1a;
   height: 100vh;
   width: 100vw;
-  overflow: hidden; /* Prevent native window double scrollbars */
+  overflow: hidden; 
 }
 
-/* Anchored Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -74,19 +72,19 @@ html, body {
   opacity: 1;
 }
 
-/* Active Window Desktop Scroll Container */
 .scroll-container {
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: none;
+  scroll-snap-type: none;
   scroll-behavior: smooth;
 }
 
-/* Seamless Fullscreen Canvas Engine */
-.hero-section,
+.title-section,
 .content-section,
-.footer-section {
+.footer-section,
+.footer-section-fixed {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -95,33 +93,49 @@ html, body {
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Creates fixed-background parallax illusion */
+  background-attachment: fixed; 
 }
 
-/* ==========================================================================
-   Background Image Assignments
-   ========================================================================== */
-.hero-section {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/placetitle.png');
+#site-footer {
+  isolation: isolate;
+  height: auto;
+  min-height: 40vh;
+  padding: 2rem 0;
+  scroll-snap-align: end;
+  background-image: none;
+}
+
+#site-footer::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('assets/img/placehold2.png') center / cover no-repeat;
+  content: "";
+  opacity: 0.1;
+}
+
+.title-section {
+  background-image: linear-gradient(rgba(255,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/d0.webp');
 }
 
 #section-1 {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/placehold.png');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/d1.png');
 }
 
 #section-2 {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/placehold2.png');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/d2.webp');
 }
 
 #section-3 {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/placehold3.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/d3.webp');
 }
 
-/* Content Layout Alignment Controls */
+
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -131,8 +145,12 @@ html, body {
   justify-content: flex-start;
 }
 
-/* Forces layout alteration: snaps Section 2 text module to the right side */
-#section-2 .container {
+
+#section-1 .container {
+  justify-content: flex-end;
+}
+
+#section-3 .container {
   justify-content: flex-end;
 }
 
@@ -156,8 +174,8 @@ html, body {
   font-weight: 800;
 }
 
-/* Frosted glass cards layout rule protecting overlay text */
 .text-side-card {
+  scroll-margin-top: 80px;
   background: var(--glass-panel);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -182,7 +200,7 @@ html, body {
 
 /* Footer Container Styling */
 .footer-bar {
-  background-color: rgba(15, 15, 15, 0.95);
+  background-color: rgba(70, 70, 70, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: var(--text-light);
@@ -191,6 +209,7 @@ html, body {
   padding: 40px;
   border-radius: 14px;
   text-align: center;
+  align-items: center;
   box-shadow: var(--box-shadow);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
@@ -203,26 +222,35 @@ html, body {
 }
 
 .footer-bar a:hover {
+  color: #0000EE;  
   text-decoration: underline;
 }
 
-/* Initial state utility for Animate.css scroll initialization */
+.footer-bar ul {
+  list-style: none;   /* Removes the bullet points */
+  padding: 0;         /* Removes the default space where bullets used to sit */
+  margin: 20px 0 0 0; /* Keeps some breathing room below the heading */
+}
+
+.footer-bar li {
+  margin-bottom: 12px; /* Adds space between your unstyled citation items */
+}
+
+
 .scroll-animate {
   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-/* Custom Dedicated Footer Slide Rules */
-.footer-section-fixed {
-  background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/img/placehold.png');
-}
-
+/* Please work :sob: */
 .footer-box {
-  background: rgba(15, 15, 15, 0.95);
+  background: rgba(15, 15, 15, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: var(--text-light);
   width: 90%;
   max-width: 700px;
+  align-self: center;
   padding: 40px;
   border-radius: 14px;
   text-align: center;
@@ -241,6 +269,7 @@ html, body {
   line-height: 1.5;
   opacity: 0.85;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .footer-links {
